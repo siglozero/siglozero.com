@@ -1,0 +1,17 @@
+{
+  "name": "siglozero-news",
+  "version": "1.0.0",
+  "description": "Sitio de noticias Siglo Zero - Chihuahua, México",
+  "main": "index.js",
+  "scripts": {
+    "build": "jekyll build",
+    "serve": "jekyll serve",
+    "dev": "keystatic dev"
+  },
+  "dependencies": {
+    "@keystatic/core": "^0.5.0"
+  },
+  "devDependencies": {
+    "jekyll": "^4.3.2"
+  }
+}

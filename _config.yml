@@ -1,0 +1,73 @@
+# ===========================================
+# CONFIGURACIÓN DEL SITIO - SIGLO ZERO
+# ===========================================
+title: Siglo Zero
+description: Información sin Límites - Noticias de Chihuahua y México
+url: https://siglozero.github.io
+baseurl: /siglozero.com
+timezone: America/Chihuahua
+language: es-MX
+
+# ===========================================
+# CONFIGURACIÓN DE JEKYLL
+# ===========================================
+markdown: kramdown
+permalink: /noticias/:title/
+highlighter: rouge
+
+# ===========================================
+# CONFIGURACIÓN DE CLOUDINARY (IMÁGENES)
+# ===========================================
+cloudinary:
+  cloud_name: ddaj1jqf1
+  api_key: 764523764542181
+  api_secret: iSWkTey5kv2HtdJ9ttYYWVXbWbY
+  upload_preset: siglozero-uploads
+
+# ===========================================
+# COLECCIONES
+# ===========================================
+collections:
+  noticias:
+    output: true
+    permalink: /noticias/:title/
+    sort_by: date
+    sort_order: reverse
+  categorias:
+    output: true
+    permalink: /categorias/:title/
+
+# ===========================================
+# VALORES POR DEFECTO
+# ===========================================
+defaults:
+  - scope:
+      path: ""
+      type: "noticias"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "categorias"
+    values:
+      layout: "categoria"
+
+# ===========================================
+# PLUGINS
+# ===========================================
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# ===========================================
+# EXCLUIR ARCHIVOS
+# ===========================================
+exclude:
+  - README.md
+  - package.json
+  - package-lock.json
+  - node_modules
+  - keystatic.config.ts
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
