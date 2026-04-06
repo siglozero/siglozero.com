@@ -31,6 +31,8 @@
 <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
 <!-- Dark Mode CSS -->
 <link rel="stylesheet" href="{{ '/css/dark-mode.css' | relative_url }}">
+<!-- For IE -->
+<link rel="stylesheet" type="text/css" href="{{ '/css/ie-only.css' | relative_url }}" />
 <!-- Modernizr Js -->
 <script src="{{ '/js/modernizr-2.8.3.min.js' | relative_url }}"></script>
 <!-- Open Graph / Facebook -->
@@ -44,9 +46,15 @@
 <meta property="article:author" content="{{ page.autor }}">
 </head>
 <body>
-<!-- Preloader -->
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an
+<strong>outdated</strong> browser. Please
+<a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+</p>
+<![endif]-->
+<!-- Preloader Start Here -->
 <div id="preloader"></div>
-
+<!-- Preloader End Here -->
 <div id="wrapper" class="wrapper">
   <!-- Header -->
   {% include header.html %}
@@ -60,6 +68,77 @@
   <!-- Footer -->
   {% include footer.html %}
 </div>
+
+<!-- Modal Start-->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="title-login-form">Login</div>
+      </div>
+      <div class="modal-body">
+        <div class="login-form">
+          <form>
+            <label>Username or email address *</label>
+            <input type="text" placeholder="Name or E-mail" />
+            <label>Password *</label>
+            <input type="password" placeholder="Password" />
+            <div class="checkbox checkbox-primary">
+              <input id="checkbox" type="checkbox" checked>
+              <label for="checkbox">Remember Me</label>
+            </div>
+            <button type="submit" value="Login">Login</button>
+            <button class="form-cancel" type="submit" value="">Cancel</button>
+            <label class="lost-password">
+              <a href="#">Lost your password?</a>
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal End-->
+
+<!-- Offcanvas Menu Start -->
+<div id="offcanvas-body-wrapper" class="offcanvas-body-wrapper">
+  <div id="offcanvas-nav-close" class="offcanvas-nav-close offcanvas-menu-btn">
+    <a href="#" class="menu-times re-point">
+      <span></span>
+      <span></span>
+    </a>
+  </div>
+  <div class="offcanvas-main-body">
+    <ul id="accordion" class="offcanvas-nav panel-group">
+      <li class="panel panel-default">
+        <div class="panel-heading">
+          <a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+            <i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
+        </div>
+        <div aria-expanded="false" id="collapseOne" role="tabpanel" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul class="offcanvas-sub-nav">
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/local/">Local</a></li>
+              <li><a href="/estado/">Estado</a></li>
+              <li><a href="/nacional/">Nacional</a></li>
+              <li><a href="/seguridad/">Seguridad</a></li>
+              <li><a href="/opinion/">Opinión</a></li>
+              <li><a href="/columna/">Columna Política</a></li>
+              <li><a href="/ciencia-tecnologia/">Ciencia y Tecnología</a></li>
+              <li><a href="/magazine/">Magazine</a></li>
+              <li><a href="/archive/">Archivo</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li><a href="/archive/"><i class="fa fa-archive" aria-hidden="true"></i>Archivo</a></li>
+      <li><a href="/contact.html"><i class="fa fa-phone" aria-hidden="true"></i>Contacto</a></li>
+    </ul>
+  </div>
+</div>
+<!-- Offcanvas Menu End -->
 
 <!-- jquery-->
 <script src="{{ '/js/jquery-2.2.4.min.js' | relative_url }}" type="text/javascript"></script>

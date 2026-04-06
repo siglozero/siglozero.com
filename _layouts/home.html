@@ -21,7 +21,40 @@ layout: default
 </section>
 {% endif %}
 
-<!-- Carrusel Principal -->
+<!-- News Feed Area (Ticker) -->
+<section class="bg-accent border-bottom add-top-margin">
+  <div class="container">
+    <div class="row no-gutters d-flex align-items-center">
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+        <div class="topic-box topic-box-margin">Últimas Noticias</div>
+      </div>
+      <div class="col-lg-10 col-md-9 col-sm-8 col-6">
+        <div class="feeding-text-dark">
+          <ol id="sample" class="ticker">
+            {% for noticia in site.noticias limit: 5 %}
+            <li>
+              <a href="{{ noticia.url }}">{{ noticia.title }}</a>
+            </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News Info List -->
+<section class="bg-body">
+  <div class="container">
+    <ul class="news-info-list text-center--md">
+      <li><i class="fa fa-map-marker" aria-hidden="true"></i>Chihuahua, México</li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><span id="current_date"></span></li>
+      <li><i class="fa fa-clock-o" aria-hidden="true"></i>Última Actualización {{ site.time | date: "%H.%M %p" }}</li>
+    </ul>
+  </div>
+</section>
+
+<!-- News Slider Area (Carrusel Principal) -->
 <section class="bg-accent section-space-less2">
   <div class="container">
     <div class="row tab-space1">
@@ -70,40 +103,96 @@ layout: default
   </div>
 </section>
 
-<!-- Noticias por Categoría -->
+<!-- Top Story Area -->
 <section class="bg-body section-space-default">
   <div class="container">
-    {% for categoria in site.categorias %}
-    {% if categoria.visible %}
-    <div class="row mb-50">
-      <div class="col-12">
-        <div class="topic-border {{ categoria.color }} mb-30">
-          <div class="topic-box-lg {{ categoria.color }}">
-            <i class="fa {{ categoria.icono }}"></i> {{ categoria.titulo | default: categoria.nombre | capitalize }}
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div class="mb-20-r ne-isotope">
+          <div class="topic-border color-cinnabar mb-30">
+            <div class="topic-box-lg color-cinnabar">Noticias Destacadas</div>
+            <div class="more-info-link">
+              <a href="/archive/">Más <i class="fa fa-angle-right"></i></a>
+            </div>
           </div>
-          <div class="more-info-link">
-            <a href="/categorias/{{ categoria.nombre }}/">Más <i class="fa fa-angle-right"></i></a>
+          <div class="featuredContainer">
+            {% for noticia in site.noticias limit: 6 %}
+            <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <div class="img-overlay-70 img-scale-animate mb-30">
+                  <a href="{{ noticia.url }}">
+                    <img src="{{ noticia.imagen | default: '/img/news/news5.jpg' }}" alt="{{ noticia.title }}" class="img-fluid width-100">
+                  </a>
+                  <div class="mask-content-lg">
+                    <div class="topic-box-sm color-cinnabar mb-20">{{ noticia.categoriaPrincipal.titulo | default: noticia.categoriaPrincipal.nombre | capitalize }}</div>
+                    <div class="post-date-light">
+                      <ul>
+                        <li><span>por</span><a href="{{ noticia.url }}">{{ noticia.autor }}</a></li>
+                        <li><span><i class="fa fa-calendar"></i></span>{{ noticia.fecha | date: "%d de %B, %Y" }}</li>
+                      </ul>
+                    </div>
+                    <h2 class="title-medium-light size-lg">
+                      <a href="{{ noticia.url }}">{{ noticia.title }}</a>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
           </div>
         </div>
       </div>
-      
-      {% assign noticias_cat = site.noticias | where: "categoriaPrincipal", categoria.nombre | limit: 4 %}
-      {% for noticia in noticias_cat %}
-      <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+
+      <!-- Sidebar -->
+      <div class="ne-sidebar sidebar-break-md col-lg-4 col-md-12">
+        <div class="sidebar-box">
+          <div class="topic-border color-cod-gray mb-30">
+            <div class="topic-box-lg color-cod-gray">Mantente Conectado</div>
+          </div>
+          <ul class="stay-connected overflow-hidden">
+            <li class="facebook"><i class="fa fa-facebook"></i><div class="connection-quantity">50.2 k</div><p>Fans</p></li>
+            <li class="twitter"><i class="fa fa-twitter"></i><div class="connection-quantity">10.3 k</div><p>Followers</p></li>
+            <li class="linkedin"><i class="fa fa-linkedin"></i><div class="connection-quantity">25.4 k</div><p>Fans</p></li>
+            <li class="rss"><i class="fa fa-rss"></i><div class="connection-quantity">20.8 k</div><p>Subscriber</p></li>
+          </ul>
+        </div>
+        <div class="sidebar-box">
+          <div class="ne-banner-layout1 text-center">
+            <a href="#"><img src="{{ '/img/banner/banner3.jpg' }}" alt="ad" class="img-fluid"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest News Area -->
+<section class="bg-body section-space-less30">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="topic-border color-cutty-sark mb-30 width-100">
+          <div class="topic-box-lg color-cutty-sark">Todas las Noticias</div>
+        </div>
+      </div>
+      {% for noticia in site.noticias limit: 12 %}
+      <div class="col-lg-4 col-md-6 col-sm-6 col-6">
         <div class="img-overlay-70 img-scale-animate mb-2">
-          <img src="{{ noticia.imagen | default: '/img/news/news10.jpg' }}" alt="{{ noticia.title }}" class="img-fluid width-100">
           <div class="mask-content-xs">
+            <div class="post-date-light">
+              <ul>
+                <li><span><i class="fa fa-calendar"></i></span>{{ noticia.fecha | date: "%d de %B, %Y" }}</li>
+              </ul>
+            </div>
             <h3 class="title-medium-light">
               <a href="{{ noticia.url }}">{{ noticia.title }}</a>
             </h3>
-            <small class="text-muted">{{ noticia.fecha | date: "%d/%m/%Y" }}</small>
           </div>
+          <img src="{{ noticia.imagen | default: '/img/news/news10.jpg' }}" alt="{{ noticia.title }}" class="img-fluid width-100">
         </div>
       </div>
       {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
   </div>
 </section>
 

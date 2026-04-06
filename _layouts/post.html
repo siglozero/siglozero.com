@@ -49,6 +49,30 @@ layout: default
             </ul>
           </div>
         </article>
+
+        <!-- Noticias Relacionadas -->
+        <div class="related-news mt-50">
+          <div class="topic-border color-cod-gray mb-30">
+            <div class="topic-box-lg color-cod-gray">Noticias Relacionadas</div>
+          </div>
+          <div class="row">
+            {% assign relacionadas = site.noticias | where: "categoriaPrincipal", page.categoriaPrincipal.nombre | limit: 3 %}
+            {% for noticia in relacionadas %}
+              {% if noticia.slug != page.slug %}
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+                <div class="img-overlay-70 img-scale-animate mb-2">
+                  <img src="{{ noticia.imagen | default: '/img/news/news10.jpg' }}" alt="{{ noticia.title }}" class="img-fluid width-100">
+                  <div class="mask-content-xs">
+                    <h3 class="title-medium-light">
+                      <a href="{{ noticia.url }}">{{ noticia.title }}</a>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
 
       <!-- Sidebar -->
@@ -74,6 +98,11 @@ layout: default
             </div>
           </div>
           {% endfor %}
+        </div>
+        <div class="sidebar-box">
+          <div class="ne-banner-layout1 text-center">
+            <a href="#"><img src="{{ '/img/banner/banner3.jpg' }}" alt="ad" class="img-fluid"></a>
+          </div>
         </div>
       </div>
     </div>

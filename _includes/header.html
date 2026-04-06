@@ -17,7 +17,7 @@
 <li class="active"><a href="/">Inicio</a></li>
 
 <li>
-<a href="#">Local</a>
+<a href="/local/">Local</a>
 <ul class="ne-dropdown-menu">
 <li><a href="/local/?sub=mi-ciudad">Mi Ciudad</a></li>
 <li><a href="/local/?sub=municipal">Municipal</a></li>
@@ -25,7 +25,7 @@
 </li>
 
 <li>
-<a href="#">Estado</a>
+<a href="/estado/">Estado</a>
 <ul class="ne-dropdown-menu">
 <li><a href="/estado/?sub=gobierno-estado">Gobierno del Estado</a></li>
 <li><a href="/estado/?sub=congreso">Congreso</a></li>
@@ -33,7 +33,7 @@
 </li>
 
 <li>
-<a href="#">Nacional</a>
+<a href="/nacional/">Nacional</a>
 <ul class="ne-dropdown-menu">
 <li><a href="/nacional/?sub=politica">Política</a></li>
 <li><a href="/nacional/?sub=pais">País</a></li>
@@ -41,18 +41,27 @@
 </li>
 
 <li>
-<a href="#">Seguridad</a>
+<a href="/seguridad/">Seguridad</a>
 <ul class="ne-dropdown-menu">
 <li><a href="/seguridad/?sub=policiaca">Policiaca</a></li>
 <li><a href="/seguridad/?sub=accidentes">Accidentes</a></li>
 </ul>
 </li>
 
-<li><a href="/opinion/">Opinión</a></li>
-<li><a href="/columna/">Columna Política</a></li>
+<li><a href="/opinion/">Opinión</a>
+<ul class="ne-dropdown-menu">
+<li><a href="/opinion/?sub=editoriales">Editoriales</a></li>
+</ul>
+</li>
+
+<li><a href="/columna/">Columna Política</a>
+<ul class="ne-dropdown-menu">
+<li><a href="/columna/?sub=columna-dia">Columna del Día</a></li>
+</ul>
+</li>
 
 <li>
-<a href="#">Ciencia y Tecnología</a>
+<a href="/ciencia-tecnologia/">Ciencia y Tecnología</a>
 <ul class="ne-dropdown-menu">
 <li><a href="/ciencia-tecnologia/?sub=smartphones">Smartphones</a></li>
 <li><a href="/ciencia-tecnologia/?sub=ia">IA</a></li>
@@ -61,7 +70,7 @@
 </li>
 
 <li>
-<a href="#">Magazine</a>
+<a href="/magazine/">Magazine</a>
 <ul class="ne-dropdown-menu">
 <li><a href="/magazine/?sub=cine">Cine / Cartelera</a></li>
 <li><a href="/magazine/?sub=moda">Moda</a></li>
@@ -89,6 +98,24 @@
 <i class="fa fa-search" aria-hidden="true"></i>
 </button>
 </form>
+</li>
+<li>
+<button type="button" class="login-btn" data-toggle="modal" data-target="#myModal">
+<i class="fa fa-user" aria-hidden="true"></i>Sign in
+</button>
+</li>
+<li>
+<div id="side-menu-trigger" class="offcanvas-menu-btn">
+<a href="#" class="menu-bar">
+<span></span>
+<span></span>
+<span></span>
+</a>
+<a href="#" class="menu-times close">
+<span></span>
+<span></span>
+</a>
+</div>
 </li>
 </ul>
 </div>

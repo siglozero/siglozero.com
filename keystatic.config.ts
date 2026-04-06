@@ -10,7 +10,7 @@ export default config({
   },
   collections: {
     // ================================
-    // CATEGORÍAS
+    // CATEGORÍAS PRINCIPALES
     // ================================
     categorias: collection({
       label: "Categorías",
@@ -86,19 +86,27 @@ export default config({
         subcategoria: fields.select({
           label: "Subcategoría",
           options: [
+            // Local
             { label: "Mi Ciudad", value: "mi-ciudad" },
             { label: "Municipal", value: "municipal" },
+            // Estado
             { label: "Gobierno del Estado", value: "gobierno-estado" },
             { label: "Congreso", value: "congreso" },
+            // Nacional
             { label: "Política", value: "politica" },
             { label: "País", value: "pais" },
+            // Seguridad
             { label: "Policiaca", value: "policiaca" },
             { label: "Accidentes", value: "accidentes" },
+            // Opinión
             { label: "Editoriales", value: "editoriales" },
+            // Columna Política
             { label: "Columna del Día", value: "columna-dia" },
+            // Ciencia y Tecnología
             { label: "Smartphones", value: "smartphones" },
             { label: "IA", value: "ia" },
             { label: "Apps", value: "apps" },
+            // Magazine
             { label: "Cine / Cartelera", value: "cine" },
             { label: "Moda", value: "moda" },
             { label: "Hogar", value: "hogar" },

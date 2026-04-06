@@ -16,15 +16,6 @@ permalink: /noticias/:title/
 highlighter: rouge
 
 # ===========================================
-# CONFIGURACIÓN DE CLOUDINARY (IMÁGENES)
-# ===========================================
-cloudinary:
-  cloud_name: ddaj1jqf1
-  api_key: 764523764542181
-  api_secret: iSWkTey5kv2HtdJ9ttYYWVXbWbY
-  upload_preset: siglozero-uploads
-
-# ===========================================
 # COLECCIONES
 # ===========================================
 collections:
@@ -50,7 +41,7 @@ defaults:
       path: ""
       type: "categorias"
     values:
-      layout: "categoria"
+      layout: "category"
 
 # ===========================================
 # PLUGINS

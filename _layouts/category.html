@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<section class="bg-body section-space-default">
+  <div class="container">
+    <div class="row mb-50">
+      <div class="col-12">
+        <div class="topic-border {{ page.color }} mb-30">
+          <div class="topic-box-lg {{ page.color }}">
+            <i class="fa {{ page.icono }}"></i> {{ page.titulo | default: page.nombre | capitalize }}
+          </div>
+        </div>
+        {% if page.descripcion %}
+        <p class="lead">{{ page.descripcion }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row">
+      {% assign noticias_categoria = site.noticias | where: "categoriaPrincipal", page.nombre %}
+      
+      {% if noticias_categoria.size > 0 %}
+        {% for noticia in noticias_categoria %}
+        <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+          <div class="img-overlay-70 img-scale-animate mb-2">
+            <div class="mask-content-xs">
+              <div class="post-date-light">
+                <ul>
+                  <li><span><i class="fa fa-calendar"></i></span>{{ noticia.fecha | date: "%d de %B, %Y" }}</li>
+                </ul>
+              </div>
+              <h3 class="title-medium-light">
+                <a href="{{ noticia.url }}">{{ noticia.title }}</a>
+              </h3>
+              {% if noticia.subcategoria %}
+              <span class="badge bg-secondary">{{ noticia.subcategoria }}</span>
+              {% endif %}
+            </div>
+            <img src="{{ noticia.imagen | default: '/img/news/news10.jpg' }}" alt="{{ noticia.title }}" class="img-fluid width-100">
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="col-12">
+          <div class="alert alert-info">
+            <p>No hay noticias publicadas en esta categoría aún.</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

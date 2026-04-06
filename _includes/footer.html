@@ -12,7 +12,7 @@
 <div class="footer-box">
 <h2 class="title-bold-light title-bar-left text-uppercase">Categorías</h2>
 <ul class="popular-categories">
-{% for categoria in site.categorias limit: 5 %}
+{% for categoria in site.categorias limit: 8 %}
 <li><a href="/categorias/{{ categoria.nombre }}/">{{ categoria.titulo | default: categoria.nombre | capitalize }} <span>{{ site.noticias | where: "categoriaPrincipal", categoria.nombre | size }}</span></a></li>
 {% endfor %}
 </ul>
@@ -32,6 +32,17 @@
 <div class="container">
 <div class="row">
 <div class="col-12 text-center">
+<a href="/" class="footer-logo img-fluid">
+<img src="{{ '/img/logo.png' | relative_url }}" alt="Siglo Zero Logo" class="img-fluid">
+</a>
+<ul class="footer-social">
+<li><a href="#" title="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+<li><a href="#" title="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+<li><a href="#" title="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+<li><a href="#" title="linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+<li><a href="#" title="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+<li><a href="#" title="rss"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+</ul>
 <p>©2025 Siglo Zero Información sin Limites  Todos los Derechos Reservados</p>
 </div>
 </div>
