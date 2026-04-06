@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<section class="bg-body section-space-default">
+  <div class="container">
+    <div class="row mb-50">
+      <div class="col-12">
+        <div class="topic-border color-cutty-sark mb-30">
+          <div class="topic-box-lg color-cutty-sark">
+            <i class="fa fa-archive"></i> Archivo de Noticias
+          </div>
+        </div>
+        <p class="lead">Consulta noticias anteriores organizadas por fecha</p>
+      </div>
+    </div>
+
+    <div class="row">
+      {% assign noticias_antiguas = site.noticias | sort: "fecha" | reverse %}
+      
+      {% for noticia in noticias_antiguas %}
+      <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+        <div class="img-overlay-70 img-scale-animate mb-2">
+          <div class="mask-content-xs">
+            <div class="post-date-light">
+              <ul>
+                <li><span><i class="fa fa-calendar"></i></span>{{ noticia.fecha | date: "%d de %B, %Y" }}</li>
+              </ul>
+            </div>
+            <h3 class="title-medium-light">
+              <a href="{{ noticia.url }}">{{ noticia.title }}</a>
+            </h3>
+            {% if noticia.importancia == "alta" %}
+            <span class="badge bg-danger">Destacada</span>
+            {% elsif noticia.importancia == "media" %}
+            <span class="badge bg-primary">Reciente</span>
+            {% else %}
+            <span class="badge bg-secondary">Archivo</span>
+            {% endif %}
+            {% if noticia.urgente %}
+            <span class="badge bg-warning text-dark">🔴 Urgente</span>
+            {% endif %}
+          </div>
+          <img src="{{ noticia.imagen | default: '/img/news/news10.jpg' }}" alt="{{ noticia.title }}" class="img-fluid width-100">
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

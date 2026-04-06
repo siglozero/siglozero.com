@@ -1,0 +1,40 @@
+<footer>
+<div class="footer-area-top">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-6 col-sm-12">
+<div class="footer-box">
+<h2 class="title-bold-light title-bar-left text-uppercase">Siglo Zero</h2>
+<p>Tu fuente confiable de noticias en Chihuahua, México. Comprometidos con la verdad y la información veraz.</p>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12">
+<div class="footer-box">
+<h2 class="title-bold-light title-bar-left text-uppercase">Categorías</h2>
+<ul class="popular-categories">
+{% for categoria in site.categorias limit: 5 %}
+<li><a href="/categorias/{{ categoria.nombre }}/">{{ categoria.titulo | default: categoria.nombre | capitalize }} <span>{{ site.noticias | where: "categoriaPrincipal", categoria.nombre | size }}</span></a></li>
+{% endfor %}
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-12 col-sm-12">
+<div class="footer-box">
+<h2 class="title-bold-light title-bar-left text-uppercase">Contacto</h2>
+<p>📧 contacto@siglozero.com</p>
+<p>📍 Chihuahua, Chih., México</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-area-bottom">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center">
+<p>©2025 Siglo Zero Información sin Limites  Todos los Derechos Reservados</p>
+</div>
+</div>
+</div>
+</div>
+</footer>

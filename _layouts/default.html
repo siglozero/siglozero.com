@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js" lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>{% if page.title %}{{ page.title }} | {% endif %}Siglo Zero</title>
+<meta name="description" content="{{ page.resumen | default: site.description }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="{{ '/img/favicon.png' | relative_url }}">
+<!-- Normalize CSS -->
+<link rel="stylesheet" href="{{ '/css/normalize.css' | relative_url }}">
+<!-- Main CSS -->
+<link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{{ '/css/bootstrap.min.css' | relative_url }}">
+<!-- Animate CSS -->
+<link rel="stylesheet" href="{{ '/css/animate.min.css' | relative_url }}">
+<!-- Font-awesome CSS-->
+<link rel="stylesheet" href="{{ '/css/font-awesome.min.css' | relative_url }}">
+<!-- Owl Caousel CSS -->
+<link rel="stylesheet" href="{{ '/vendor/OwlCarousel/owl.carousel.min.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/vendor/OwlCarousel/owl.theme.default.min.css' | relative_url }}">
+<!-- Main Menu CSS -->
+<link rel="stylesheet" href="{{ '/css/meanmenu.min.css' | relative_url }}">
+<!-- Magnific CSS -->
+<link rel="stylesheet" type="text/css" href="{{ '/css/magnific-popup.css' | relative_url }}">
+<!-- Switch Style CSS -->
+<link rel="stylesheet" href="{{ '/css/hover-min.css' | relative_url }}">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+<!-- Dark Mode CSS -->
+<link rel="stylesheet" href="{{ '/css/dark-mode.css' | relative_url }}">
+<!-- Modernizr Js -->
+<script src="{{ '/js/modernizr-2.8.3.min.js' | relative_url }}"></script>
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.resumen }}">
+<meta property="og:image" content="{{ page.imagen }}">
+<meta property="og:site_name" content="Siglo Zero">
+<meta property="article:published_time" content="{{ page.fecha }}">
+<meta property="article:author" content="{{ page.autor }}">
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<div id="wrapper" class="wrapper">
+  <!-- Header -->
+  {% include header.html %}
+
+  <!-- Botón Tema Día/Noche -->
+  {% include theme-toggle.html %}
+
+  <!-- Contenido Principal -->
+  {{ content }}
+
+  <!-- Footer -->
+  {% include footer.html %}
+</div>
+
+<!-- jquery-->
+<script src="{{ '/js/jquery-2.2.4.min.js' | relative_url }}" type="text/javascript"></script>
+<!-- Plugins js -->
+<script src="{{ '/js/plugins.js' | relative_url }}" type="text/javascript"></script>
+<!-- Popper js -->
+<script src="{{ '/js/popper.js' | relative_url }}" type="text/javascript"></script>
+<!-- Bootstrap js -->
+<script src="{{ '/js/bootstrap.min.js' | relative_url }}" type="text/javascript"></script>
+<!-- WOW JS -->
+<script src="{{ '/js/wow.min.js' | relative_url }}"></script>
+<!-- Owl Cauosel JS -->
+<script src="{{ '/vendor/OwlCarousel/owl.carousel.min.js' | relative_url }}" type="text/javascript"></script>
+<!-- Meanmenu Js -->
+<script src="{{ '/js/jquery.meanmenu.min.js' | relative_url }}" type="text/javascript"></script>
+<!-- Srollup js -->
+<script src="{{ '/js/jquery.scrollUp.min.js' | relative_url }}" type="text/javascript"></script>
+<!-- jquery.counterup js -->
+<script src="{{ '/js/jquery.counterup.min.js' | relative_url }}"></script>
+<script src="{{ '/js/waypoints.min.js' | relative_url }}"></script>
+<!-- Isotope js -->
+<script src="{{ '/js/isotope.pkgd.min.js' | relative_url }}" type="text/javascript"></script>
+<!-- Magnific Popup -->
+<script src="{{ '/js/jquery.magnific-popup.min.js' | relative_url }}"></script>
+<!-- Ticker Js -->
+<script src="{{ '/js/ticker.js' | relative_url }}" type="text/javascript"></script>
+<!-- Theme Toggle JS -->
+<script src="{{ '/js/theme-toggle.js' | relative_url }}"></script>
+<!-- Custom Js -->
+<script src="{{ '/js/main.js' | relative_url }}" type="text/javascript"></script>
+</body>
+</html>

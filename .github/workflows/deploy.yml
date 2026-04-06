@@ -1,0 +1,48 @@
+# ===========================================
+# GITHUB ACTIONS - DESPLIEGUE AUTOMÁTICO
+# SIGLO ZERO
+# ===========================================
+
+name: Desplegar Sitio
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '_layouts/**'
+      - '_includes/**'
+      - 'content/**'
+      - '*.md'
+      - '*.html'
+      - '*.yml'
+      - 'css/**'
+      - 'js/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
+
+      - name: Instalar dependencias
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Construir sitio con Jekyll
+        run: bundle exec jekyll build
+
+      - name: Desplegar a GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site

@@ -1,0 +1,104 @@
+/* ===========================================
+   ESTILOS TEMA OSCURO - SIGLO ZERO
+   =========================================== */
+
+body.dark-mode {
+  background: #1a1a2e !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .wrapper,
+body.dark-mode #wrapper {
+  background: #16213e !important;
+}
+
+body.dark-mode header,
+body.dark-mode .header-style1 {
+  background: #0f3460 !important;
+}
+
+body.dark-mode footer,
+body.dark-mode .footer-area-top,
+body.dark-mode .footer-area-bottom {
+  background: #1a1a2e !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .bg-body {
+  background: #0f3460 !important;
+}
+
+body.dark-mode .bg-accent {
+  background: #16213e !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode p {
+  color: #b0b0b0 !important;
+}
+
+body.dark-mode a {
+  color: #e94560 !important;
+}
+
+body.dark-mode a:hover {
+  color: #ff6b6b !important;
+}
+
+body.dark-mode .topic-box,
+body.dark-mode .topic-box-sm,
+body.dark-mode .topic-box-lg {
+  color: #fff !important;
+}
+
+body.dark-mode .mask-content-lg,
+body.dark-mode .mask-content-sm,
+body.dark-mode .mask-content-xs {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+body.dark-mode .sidebar-box {
+  background: #16213e !important;
+  border: 1px solid #0f3460 !important;
+}
+
+body.dark-mode .form-control {
+  background: #0f3460 !important;
+  border: 1px solid #1a1a2e !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .btn-primary {
+  background: #e94560 !important;
+  border-color: #e94560 !important;
+}
+
+body.dark-mode img {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+body.dark-mode img:hover {
+  opacity: 1;
+}
+
+body.dark-mode .modal-content {
+  background: #16213e !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .offcanvas-body-wrapper {
+  background: #1a1a2e !important;
+}
+
+body.dark-mode .offcanvas-nav {
+  background: #16213e !important;
+}

@@ -1,0 +1,81 @@
+---
+layout: default
+---
+
+<section class="bg-body section-space-default">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <article class="news-single">
+          <!-- Categoría -->
+          {% if page.categoriaPrincipal %}
+          <div class="topic-box-sm {{ page.categoriaPrincipal.color | default: 'color-cinnabar' }} mb-20">
+            {{ page.categoriaPrincipal.titulo | default: page.categoriaPrincipal.nombre | capitalize }}
+          </div>
+          {% endif %}
+          
+          <!-- Título -->
+          <h1 class="title-medium-light size-lg mb-3">{{ page.title }}</h1>
+          
+          <!-- Meta -->
+          <div class="post-date-dark mb-4">
+            <ul>
+              <li><span>por</span><a href="#">{{ page.autor | default: 'Redacción Siglo Zero' }}</a></li>
+              <li><span><i class="fa fa-calendar"></i></span>{{ page.fecha | date: "%d de %B, %Y" }}</li>
+              <li><span><i class="fa fa-clock-o"></i></span>{{ page.fecha | date: "%H.%M %p" }}</li>
+              {% if page.subcategoria %}
+              <li><span class="badge bg-secondary">{{ page.subcategoria }}</span></li>
+              {% endif %}
+            </ul>
+          </div>
+
+          <!-- Imagen -->
+          {% if page.imagen %}
+          <img src="{{ page.imagen }}" alt="{{ page.title }}" class="img-fluid rounded mb-4">
+          {% endif %}
+
+          <!-- Contenido -->
+          <div class="content">
+            {{ content }}
+          </div>
+
+          <!-- Compartir -->
+          <div class="share-article mt-5">
+            <h4>Compartir esta noticia:</h4>
+            <ul class="share-social">
+              <li><a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://wa.me/?text={{ page.title }} - {{ site.url }}{{ page.url }}" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="ne-sidebar sidebar-break-md col-lg-4 col-md-12">
+        <div class="sidebar-box">
+          <div class="topic-border color-cod-gray mb-30">
+            <div class="topic-box-lg color-cod-gray">Lo Más Leído</div>
+          </div>
+          {% for noticia in site.noticias limit: 5 %}
+          <div class="media mb-30">
+            <a class="width38-lg width40-md img-opacity-hover" href="{{ noticia.url }}">
+              <img src="{{ noticia.imagen | default: '/img/news/news6.jpg' }}" alt="{{ noticia.title }}" class="img-fluid">
+            </a>
+            <div class="media-body">
+              <div class="post-date-dark">
+                <ul>
+                  <li><span><i class="fa fa-calendar"></i></span>{{ noticia.fecha | date: "%d de %B" }}</li>
+                </ul>
+              </div>
+              <h3 class="title-medium-dark size-md mb-none">
+                <a href="{{ noticia.url }}">{{ noticia.title }}</a>
+              </h3>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,118 @@
+---
+layout: default
+---
+
+<!-- Breaking News (Si hay urgentes) -->
+{% assign urgentes = site.noticias | where: "urgente", true | limit: 1 %}
+{% if urgentes.size > 0 %}
+<section class="bg-danger text-white py-2">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <span class="badge bg-warning text-dark">🔴 URGENTE</span>
+      </div>
+      <div class="col">
+        <a href="{{ urgentes[0].url }}" class="text-white text-decoration-none">
+          {{ urgentes[0].title }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Carrusel Principal -->
+<section class="bg-accent section-space-less2">
+  <div class="container">
+    <div class="row tab-space1">
+      <!-- Noticia Principal -->
+      <div class="col-lg-6 col-md-12">
+        {% assign principal = site.noticias | where: "destacado", true | where: "importancia", "alta" | first %}
+        {% if principal %}
+        <div class="img-overlay-70 img-scale-animate mb-2">
+          <img src="{{ principal.imagen | default: '/img/news/news1.jpg' }}" alt="{{ principal.title }}" class="img-fluid width-100">
+          <div class="mask-content-lg">
+            <div class="topic-box-sm color-cinnabar mb-20">{{ principal.categoriaPrincipal.titulo | default: principal.categoriaPrincipal.nombre | capitalize }}</div>
+            <div class="post-date-light">
+              <ul>
+                <li><span>por</span><a href="{{ principal.url }}">{{ principal.autor }}</a></li>
+                <li><span><i class="fa fa-calendar"></i></span>{{ principal.fecha | date: "%d de %B, %Y" }}</li>
+              </ul>
+            </div>
+            <h1 class="title-medium-light">
+              <a href="{{ principal.url }}">{{ principal.title }}</a>
+            </h1>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- 3 Noticias Secundarias -->
+      <div class="col-lg-6 col-md-12">
+        <div class="row tab-space1">
+          {% assign secundarias = site.noticias | where: "importancia", "media" | limit: 3 %}
+          {% for noticia in secundarias %}
+          <div class="{% if forloop.first %}col-12{% else %}col-sm-6 col-12{% endif %}">
+            <div class="img-overlay-70 img-scale-animate mb-2">
+              <div class="mask-content-sm">
+                <div class="topic-box-sm color-azure-radiance mb-10">{{ noticia.categoriaPrincipal.titulo | default: noticia.categoriaPrincipal.nombre | capitalize }}</div>
+                <h{% if forloop.first %}2{% else %}3{% endif %} class="title-medium-light">
+                  <a href="{{ noticia.url }}">{{ noticia.title }}</a>
+                </h{% if forloop.first %}2{% else %}3{% endif %}>
+              </div>
+              <img src="{{ noticia.imagen | default: '/img/news/news2.jpg' }}" alt="{{ noticia.title }}" class="img-fluid width-100">
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Noticias por Categoría -->
+<section class="bg-body section-space-default">
+  <div class="container">
+    {% for categoria in site.categorias %}
+    {% if categoria.visible %}
+    <div class="row mb-50">
+      <div class="col-12">
+        <div class="topic-border {{ categoria.color }} mb-30">
+          <div class="topic-box-lg {{ categoria.color }}">
+            <i class="fa {{ categoria.icono }}"></i> {{ categoria.titulo | default: categoria.nombre | capitalize }}
+          </div>
+          <div class="more-info-link">
+            <a href="/categorias/{{ categoria.nombre }}/">Más <i class="fa fa-angle-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      {% assign noticias_cat = site.noticias | where: "categoriaPrincipal", categoria.nombre | limit: 4 %}
+      {% for noticia in noticias_cat %}
+      <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+        <div class="img-overlay-70 img-scale-animate mb-2">
+          <img src="{{ noticia.imagen | default: '/img/news/news10.jpg' }}" alt="{{ noticia.title }}" class="img-fluid width-100">
+          <div class="mask-content-xs">
+            <h3 class="title-medium-light">
+              <a href="{{ noticia.url }}">{{ noticia.title }}</a>
+            </h3>
+            <small class="text-muted">{{ noticia.fecha | date: "%d/%m/%Y" }}</small>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Enlace a Archivo -->
+<section class="bg-accent section-space-default text-center">
+  <div class="container">
+    <h2 class="mb-30">¿Buscas noticias anteriores?</h2>
+    <a href="/archive/" class="btn btn-primary btn-lg">
+      <i class="fa fa-archive"></i> Ver Archivo Completo
+    </a>
+  </div>
+</section>
