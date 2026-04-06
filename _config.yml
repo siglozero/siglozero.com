@@ -3,8 +3,8 @@
 # ===========================================
 title: Siglo Zero
 description: Información sin Límites - Noticias de Chihuahua y México
-url: https://siglozero.github.io
-baseurl: /siglozero.com
+url: "https://siglozero.github.io"
+baseurl: "/siglozero.com"
 timezone: America/Chihuahua
 language: es-MX
 
